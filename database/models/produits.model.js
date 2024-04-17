@@ -1,21 +1,21 @@
 const mongoose = require("mongoose");
+
 const schema = mongoose.Schema;
 
 const produitSchema = schema({
   name: {
     type: String,
-    minlength: [1, "Ce champs est requis !"],
-    required: true,
-  },
-  image: {
-    type: String,
-    minlength: [1, "Ce champs est requis !"],
-    required: true,
+    required: [true, "Le nom est requis !"],
+    minLength: [2, "Le nom est trop court ! "],
   },
   note: {
     type: String,
-    minlength: [1, "Ce champs est requis !"],
-    required: true,
+    required: [true, "Les notes sont requises !"],
+    minLength: [4, "Les notes sont trop courtes ! "],
+  },
+  image: {
+    type: String,
+    required: [true, "L'url de l'image est requise !"],
   },
 });
 
